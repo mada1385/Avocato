@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "964473301252",
+    "firebase_url": "https://mydream-706b6.firebaseio.com",
+    "project_id": "mydream-706b6",
+    "storage_bucket": "mydream-706b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964473301252:android:5bf1bcc6ada51fbcb8c851",
+        "android_client_info": {
+          "package_name": "com.mada.mydream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOlF9LPaV8Yu0ALg6k1nXsvQuL1gWzM8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
