@@ -12,9 +12,9 @@ const k_title = Padding(
 class Goldtext extends StatelessWidget {
   final String string;
   final FontWeight fontWeight;
-  final double fontsize ;
+  final double fontsize;
 
-  const Goldtext({@required this.string,this.fontsize, this.fontWeight});
+  const Goldtext({@required this.string, this.fontsize, this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,9 @@ class Goldtext extends StatelessWidget {
         child: Text(
           string,
           style: TextStyle(
-              color: k_primarycolor, fontWeight: fontsize==null? FontWeight.w100:fontWeight, fontSize:fontsize==null?35:fontsize),
+              color: k_primarycolor,
+              fontWeight: fontsize == null ? FontWeight.w100 : fontWeight,
+              fontSize: fontsize == null ? 35 : fontsize),
         ));
   }
 }

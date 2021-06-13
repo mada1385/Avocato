@@ -16,11 +16,13 @@ class Commentfield extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: ReadMoreText(
-                text,
-                colorClickableText: k_primarycolor,
-                trimLength: 100,
-                trimLines: 2,
+              child: Expanded(
+                child: ReadMoreText(
+                  text,
+                  colorClickableText: k_primarycolor,
+                  trimLength: 100,
+                  trimLines: 2,
+                ),
               )),
         ));
   }

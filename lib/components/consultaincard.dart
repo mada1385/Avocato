@@ -11,9 +11,12 @@ import 'circleavatar.dart';
 class Consultaioncard extends StatelessWidget {
   const Consultaioncard({
     this.firstbuttonhight = false,
+    this.concult,
+    this.username,
   });
   // final String label;
   final bool firstbuttonhight;
+  final String concult, username;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +26,8 @@ class Consultaioncard extends StatelessWidget {
             width: 0,
           )
         : Padding(
-          padding: const EdgeInsets.symmetric(vertical:10 , horizontal: 5),
-          child: Container(
-            
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+            child: Container(
               child: Column(
                 children: <Widget>[
                   SizedBox(
@@ -44,8 +46,7 @@ class Consultaioncard extends StatelessWidget {
                       ),
                       Flexible(
                           child: Container(
-                        child: Text(
-                            "Lorem Ipsum is simply dummy text of the printing "),
+                        child: Text(username),
                       ))
                     ],
                   ),
@@ -62,7 +63,7 @@ class Consultaioncard extends StatelessWidget {
                     child: Container(
                       color: Colors.transparent,
                       child: ReadMoreText(
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                        concult,
                         colorClickableText: k_primarycolor,
                       ),
                       // "hello")
@@ -95,7 +96,7 @@ class Consultaioncard extends StatelessWidget {
               //   ),
               // ),
             ),
-        );
+          );
 
     //  Padding(
     //     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 1),

@@ -30,7 +30,10 @@ dependencies:
   # flutter_read_more_text: ^0.0.1
   rich_alert: ^0.1.32
   persistent_bottom_nav_bar: ^2.0.5
-  
+  shared_preferences: 
+  form_field_validator: 
+  provider: 
+  cloud_firestore: 
   
 
 
@@ -60,8 +63,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-   - asset/
+  # assets:
+  #  - asset/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

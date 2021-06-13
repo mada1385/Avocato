@@ -6,28 +6,39 @@ import 'package:mydream/constants/colours.dart';
 import 'package:mydream/constants/decoration.dart';
 
 class Reservationcard extends StatefulWidget {
+  final String lawyername, date, time, address;
+
+  const Reservationcard(
+      {Key key, this.lawyername, this.date, this.time, this.address})
+      : super(key: key);
   @override
   _ReservationcardState createState() => _ReservationcardState();
 }
 
 class _ReservationcardState extends State<Reservationcard> {
   double hight = double.infinity;
-  double  width = 353 ;
-  double iconsize = 30 ;
-  double padding = 10 ;
+  double width = 353;
+  double iconsize = 30;
+  double padding = 10;
   @override
   Widget build(BuildContext context) {
     return SlideMenu(
       menuItems: <Widget>[
-        FlatButton(onPressed: (){setState(() {
-          hight = 0 ;
-          width = 0 ;
-          iconsize = 0;
-          padding = 0;
-        });},child: Goldtext(string: "Cancel"),color: Colors.transparent,)
+        FlatButton(
+          onPressed: () {
+            setState(() {
+              hight = 0;
+              width = 0;
+              iconsize = 0;
+              padding = 0;
+            });
+          },
+          child: Goldtext(string: "Cancel"),
+          color: Colors.transparent,
+        )
       ],
-          child: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: padding),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: padding),
         child: Container(
           width: width,
           height: hight,
@@ -49,8 +60,9 @@ class _ReservationcardState extends State<Reservationcard> {
                   ),
                   Flexible(
                       child: Goldtext(
-                     string: "name of the lawyer",
-                    fontWeight: FontWeight.w600, fontsize: 25,
+                    string: widget.lawyername,
+                    fontWeight: FontWeight.w600,
+                    fontsize: 25,
                   )),
                 ],
               ),
@@ -64,12 +76,17 @@ class _ReservationcardState extends State<Reservationcard> {
                 color: k_primarycolor,
                 width: double.infinity,
               ),
-              Resevationrow(label: "date",value: "20/10/2020",),
-              Resevationrow(label: "from",value: "08:00 AM",),
-              Resevationrow(label: "to", value: "09:00 Am"),
-              Resevationrow(label: "address", value: "13 dr hassan ibrahim st madint nasr")
-              
-             
+              Resevationrow(
+                label: "date",
+                value: widget.date,
+              ),
+              Resevationrow(
+                label: "Time",
+                value: widget.time,
+              ),
+              Resevationrow(
+                  label: "address",
+                  value: "13 dr hassan ibrahim st madint nasr")
             ],
           ),
           decoration: kdecorationgoldaccent,
@@ -80,27 +97,24 @@ class _ReservationcardState extends State<Reservationcard> {
 }
 
 class Resevationrow extends StatelessWidget {
-  final String label ;
-  final String value ;
-  const Resevationrow({
-    
-   @required this.label,@required this.value
-  }) ;
+  final String label;
+  final String value;
+  const Resevationrow({@required this.label, @required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        
         Reservationtext(
           text: label,
           label: true,
         ),
-        Reservationtext(text: ":",label: false,),
-         Reservationtext(text: value, label: false),
-         
+        Reservationtext(
+          text: ":",
+          label: false,
+        ),
+        Reservationtext(text: value, label: false),
       ],
-      
     );
   }
 }
@@ -108,15 +122,15 @@ class Resevationrow extends StatelessWidget {
 class Reservationtext extends StatelessWidget {
   final String text;
   final bool label;
-  const Reservationtext({@required this.text , @required this.label});
+  const Reservationtext({@required this.text, @required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Flexible(
-          child: Padding(
-        padding: EdgeInsets.only(top: 20,left: label==true?30:10),
-        child: Goldtext(string:  text,
-            fontWeight: FontWeight.w400, fontsize : 19),
+      child: Padding(
+        padding: EdgeInsets.only(top: 20, left: label == true ? 10 : 0),
+        child:
+            Goldtext(string: text, fontWeight: FontWeight.w400, fontsize: 16),
       ),
     );
   }

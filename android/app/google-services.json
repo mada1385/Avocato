@@ -8,7 +8,81 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:964473301252:android:5bf1bcc6ada51fbcb8c851",
+        "mobilesdk_app_id": "1:964473301252:android:e576d725bdf1aab7b8c851",
+        "android_client_info": {
+          "package_name": "com.dereny.avocato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964473301252-j6phdvgs0u3km266gjevek4n7044cngv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dereny.avocato",
+            "certificate_hash": "e4ac39d0bf320cc6ef4dd30683ea3d40d9d25fe9"
+          }
+        },
+        {
+          "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOlF9LPaV8Yu0ALg6k1nXsvQuL1gWzM8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964473301252:android:6ccb12240235ad6ab8c851",
+        "android_client_info": {
+          "package_name": "com.dereny.elavocato"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "964473301252-50m7ccck7ep5dbcgirh6bun3331qan0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dereny.elavocato",
+            "certificate_hash": "e4ac39d0bf320cc6ef4dd30683ea3d40d9d25fe9"
+          }
+        },
+        {
+          "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOlF9LPaV8Yu0ALg6k1nXsvQuL1gWzM8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "964473301252-s5daecdg2hst5ma15v17eg9ku758f70c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:964473301252:android:86dc6b24c4bd0b7cb8c851",
         "android_client_info": {
           "package_name": "com.mada.mydream"
         }
