@@ -33,7 +33,8 @@ dependencies:
   shared_preferences: 
   form_field_validator: 
   provider: 
-  cloud_firestore: 
+  cloud_firestore:
+  url_launcher: 
   
 
 

@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mydream/components/coulmnbuilder.dart';
 import 'package:mydream/components/primarybtn.dart';
 import 'package:mydream/components/subbtn.dart';
+
 class Subbtns extends StatefulWidget {
   final String category;
-  final List<String> subcategories;
+  // final List<String> subcategories;
 
   Function expand;
   Subbtns({
     @required this.category,
-    @required this.subcategories,
-    // @required this.expand,
+    @required this.expand,
   });
 
   @override
@@ -26,21 +26,15 @@ class _SubbtnsState extends State<Subbtns> {
         children: <Widget>[
           Column(
             children: <Widget>[
-              Primarybtn(
-                  expand: () {
-                    setState(() {
-                      buttonhight =!buttonhight;
-                    });
-                  },
-                  category: widget.category),
-              ColumnBuilder(
-                  itemBuilder: (context, index) {
-                    return Subbtn(
-                      label: widget.subcategories[index],
-                      firstbuttonhight: buttonhight,
-                    );
-                  },
-                  itemCount: widget.subcategories.length)
+              Primarybtn(expand: widget.expand, category: widget.category),
+              // ColumnBuilder(
+              //     itemBuilder: (context, index) {
+              //       return Subbtn(
+              //         label: widget.subcategories[index],
+              //         firstbuttonhight: buttonhight,
+              //       );
+              //     },
+              //     itemCount: widget.subcategories.length)
             ],
           ),
         ],

@@ -26,9 +26,9 @@ class Newscard extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                // Goldcircleavatar(
-                //   size: 60,
-                // ),
+                Goldcircleavatar(
+                  size: 60,
+                ),
                 SizedBox(
                   width: 20,
                 ),

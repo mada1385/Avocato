@@ -78,6 +78,11 @@ class Lawyerscreen extends StatelessWidget {
           stream: Firestore.instance
               .collection("lawyer")
               .where("city", isEqualTo: city)
+              .where(
+                "category",
+                isEqualTo: lawfield,
+              )
+              .where("area", isEqualTo: area)
               .snapshots(),
           builder: (context, snapshot) {
             print(snapshot.data.documents);
