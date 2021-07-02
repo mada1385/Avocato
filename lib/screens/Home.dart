@@ -20,7 +20,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
@@ -45,9 +45,10 @@ class _HomeState extends State<Home> {
       // drawer: Drawer(child: Container(color: k_backgroundcolor,height: double.infinity,width: double.infinity,child: Column(crossAxisAlignment: CrossAxisAlignment.center,children: <Widget>[ SizedBox(height: 20,), SafeArea(child: CircleAvatar(backgroundColor: Colors.white,minRadius: 40.0,))],),),),
       backgroundColor: Color(0xff282828),
       appBar: AppBar(
+        centerTitle: true,
         bottomOpacity: 0.0,
         backgroundColor: k_backgroundcolor,
-        title: k_title,
+        title: Hero(tag: "logo", child: k_title),
       ),
       body: Center(
         child: widgetOptions.elementAt(_selectedIndex),

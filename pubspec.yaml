@@ -35,6 +35,9 @@ dependencies:
   provider: 
   cloud_firestore:
   url_launcher: 
+  flutter_rating_bar: ^3.2.0+1
+
+
   
 
 

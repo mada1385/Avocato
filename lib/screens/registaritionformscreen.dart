@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:mydream/components/Roundbutton.dart';
 import 'package:mydream/components/customtextfield.dart';
 import 'package:mydream/components/dropdownitem.dart';
-import 'package:mydream/components/primarytextfield.dart';
 import 'package:mydream/components/texts.dart';
 import 'package:mydream/config/provider.dart';
 import 'package:mydream/constants/colours.dart';
+import 'package:mydream/screens/Home.dart';
 import 'package:provider/provider.dart';
 
 class Registerationform extends StatefulWidget {
@@ -148,22 +148,24 @@ class _RegisterationformState extends State<Registerationform> {
                       .collection('registration')
                       .document(documnetID)
                       .setData({
-                        "name": name.text,
-                        "phone_number": mobile.text,
-                        "case_brief": brief.text,
-                        "date": day,
-                        "time": time,
-                        "lawyername": widget.lawyer["full_name"],
-                        "lawyerid": widget.lawyer.documentID,
-                        "usermail":
-                            Provider.of<Userprovider>(context, listen: false)
-                                .username
-                      })
-                      .then((_) {})
-                      .catchError((err) {
-                        print(err.toString());
-                        return err.toString();
-                      });
+                    "name": name.text,
+                    "phone_number": mobile.text,
+                    "case_brief": brief.text,
+                    "date": day,
+                    "time": time,
+                    "lawyer": widget.lawyer.data,
+                    "user":
+                        Provider.of<Userprovider>(context, listen: false).user,
+                    "userid": Provider.of<Userprovider>(context, listen: false)
+                        .userid,
+                    "lawyerid": widget.lawyer.reference.documentID
+                  }).then((_) {
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Home()));
+                  }).catchError((err) {
+                    print(err.toString());
+                    return err.toString();
+                  });
                 }
               })
         ],

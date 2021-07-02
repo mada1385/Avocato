@@ -10,13 +10,19 @@ class Newsscreen extends StatelessWidget {
     return StreamBuilder<dynamic>(
         stream: Firestore.instance.collection("post").snapshots(),
         builder: (context, snapshots) {
-          return Primarylistveiw(
-              children: snapshots.data.documents
-                  .map<Widget>((e) => Builder(
-                        builder: (context) =>
-                            Newscard(name: e["user"], news: e["body"]),
-                      ))
-                  .toList());
+          if (snapshots.data == null)
+            return Center(
+                child: Theme(
+                    data: ThemeData(accentColor: k_primarycolor),
+                    child: CircularProgressIndicator()));
+          else
+            return Primarylistveiw(
+                children: snapshots.data.documents
+                    .map<Widget>((e) => Builder(
+                          builder: (context) => Newscard(
+                              name: e["user"]["full_name"], news: e["body"]),
+                        ))
+                    .toList());
         });
   }
 }

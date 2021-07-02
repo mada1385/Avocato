@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mydream/components/dropdownitem.dart';
 import 'package:mydream/components/primaryiconbtn.dart';
 import 'package:mydream/constants/colours.dart';
-import 'package:mydream/screens/lawscreen.dart';
 import 'package:mydream/screens/lawyerscreen.dart';
 
 class Lawyersearch extends StatefulWidget {

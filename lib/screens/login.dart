@@ -1,4 +1,5 @@
 import 'package:mydream/components/customtextfield.dart';
+import 'package:mydream/config/provider.dart';
 import 'package:mydream/constants/mediaqueryconfig.dart';
 import 'package:mydream/models/user.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import 'package:mydream/screens/Home.dart';
 import 'package:mydream/screens/regestraiton.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Loginpage extends StatefulWidget {
@@ -203,6 +205,8 @@ class Loginsnackbutton extends StatelessWidget {
           if (loggeduser != null) {
             // if (loggeduser == "success") {
             print(loggeduser);
+            await Provider.of<Userprovider>(context, listen: false)
+                .getid(context, loggeduser);
             SharedPreferences preferences =
                 await SharedPreferences.getInstance();
             preferences.setString("email", loggeduser);

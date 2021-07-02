@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mydream/components/commentfield.dart';
 import 'package:mydream/components/readmore.dart';
@@ -11,8 +12,11 @@ class Consultaioncard extends StatelessWidget {
     this.firstbuttonhight = false,
     this.concult,
     this.username,
+    this.replies,
+    this.refrence,
   });
-  // final String label;
+  final String refrence;
+  final List replies;
   final bool firstbuttonhight;
   final String concult, username;
 
@@ -27,6 +31,8 @@ class Consultaioncard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
             child: Container(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
                     height: 10,
@@ -56,64 +62,43 @@ class Consultaioncard extends StatelessWidget {
                     width: double.infinity,
                     color: k_primarycolor,
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Container(
                       color: Colors.transparent,
                       child: ReadMoreText(
                         concult,
                         colorClickableText: k_primarycolor,
                       ),
-                      // "hello")
                     ),
                   ),
-                  //  Container(
-                  //   height: 2,
-                  //   width: double.infinity,
-                  //   color: k_primarycolor,
-                  // ),
-                  // SizedBox(height: 7.5,),
-                  Commentfield(
-                    text:
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  SizedBox(
+                    height: 10,
                   ),
-                  Commentfield(
-                    text:
-                        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 5),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: replies == null
+                            ? []
+                            : replies
+                                .map<Widget>((e) => Builder(
+                                      builder: (context) => Commentfield(
+                                        e: e,
+                                        ref: refrence,
+                                      ),
+                                    ))
+                                .toList()),
                   )
                 ],
               ),
-              //  height: firstbuttonhight == false ? 0 :
               width: double.infinity,
               decoration: kdecorationconsultaion,
-              //  BoxDecoration(
-              //   color: koldpapper,
-              //   borderRadius: BorderRadius.all(Radius.circular(10)),
-              //   border: Border.all(
-              //     color: k_primarycolor,
-              //   ),
-              // ),
             ),
           );
-
-    //  Padding(
-    //     padding: EdgeInsets.symmetric(horizontal: 15, vertical: 1),
-    //     child: GestureDetector(
-    //         child: Container(
-    //       child: Text(
-    //         label,
-    //         style: TextStyle(color: Colors.grey),
-    //       ),
-    //       height: firstbuttonhight == false ? 0 : 40,
-    //       width: double.infinity,
-    //       decoration: BoxDecoration(
-    //         color:koldpapper,
-    //         // Colors.white,
-    //         borderRadius: BorderRadius.all(Radius.circular(10)),
-    //         border: Border.all(
-    //           color: k_primarycolor,
-    //         ),
-    //       ),
-    //     )));
   }
 }

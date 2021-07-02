@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mydream/components/showdialog.dart';
 import 'package:mydream/config/provider.dart';
-import 'package:mydream/screens/Home.dart';
-import 'package:mydream/screens/lawyerdetail.dart';
-import 'package:mydream/screens/lawyerscreen.dart';
-import 'package:mydream/screens/lawyersearch.dart';
 import 'package:mydream/screens/login.dart';
-import 'package:mydream/screens/regestraiton.dart';
-import 'package:mydream/screens/registaritionformscreen.dart';
+import 'package:mydream/screens/splash_page.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
@@ -32,7 +26,7 @@ class MyApp extends StatelessWidget {
             // is not restarted.
             primarySwatch: Colors.blue,
           ),
-          home: Loginpage()),
+          home: SplashScreen()),
     );
   }
 }

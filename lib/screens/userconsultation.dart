@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mydream/components/consultaincard.dart';
+import 'package:mydream/components/dropdownitem.dart';
 import 'package:mydream/components/primarybtn.dart';
 import 'package:mydream/components/primaryiconbtn.dart';
 import 'package:mydream/components/primarylistview.dart';
@@ -16,6 +17,7 @@ class Userconsutation extends StatefulWidget {
 }
 
 class _UserconsutationState extends State<Userconsutation> {
+  String lawfield;
   String usercase;
   @override
   Widget build(BuildContext context) {
@@ -69,6 +71,21 @@ class _UserconsutationState extends State<Userconsutation> {
                                     });
                                   },
                                 ),
+                                Dropdownmenu(
+                                  value: lawfield,
+                                  onchange: (val) {
+                                    setState(() {
+                                      lawfield = val;
+                                    });
+                                  },
+                                  items: [
+                                    'Admiralty',
+                                    'Bankruptcy',
+                                    'Business',
+                                    'Civil Rights'
+                                  ],
+                                  hint: "select law field",
+                                ),
                               ],
                             ),
                           ),
@@ -84,17 +101,23 @@ class _UserconsutationState extends State<Userconsutation> {
                                       .collection('cases')
                                       .document(documnetID)
                                       .setData({
-                                        "case": usercase,
-                                        "usermail": Provider.of<Userprovider>(
-                                                context,
-                                                listen: false)
-                                            .username
-                                      })
-                                      .then((_) {})
-                                      .catchError((err) {
-                                        print(err.toString());
-                                        return err;
-                                      });
+                                    "case": usercase,
+                                    "user": Provider.of<Userprovider>(context,
+                                            listen: false)
+                                        .user,
+                                    "lawfield": lawfield,
+                                    "userid": Provider.of<Userprovider>(context,
+                                            listen: false)
+                                        .userid,
+                                  }).then((_) {
+                                    setState(() {
+                                      lawfield = "";
+                                      widget.flag = !widget.flag;
+                                    });
+                                  }).catchError((err) {
+                                    print(err.toString());
+                                    return err;
+                                  });
                                 }),
                           )
                         ],
@@ -106,20 +129,28 @@ class _UserconsutationState extends State<Userconsutation> {
               child: StreamBuilder(
                   stream: Firestore.instance
                       .collection("cases")
-                      .where("usermail",
+                      .where("userid",
                           isEqualTo:
                               Provider.of<Userprovider>(context, listen: false)
-                                  .username)
+                                  .userid)
                       .snapshots(),
                   builder: (context, snapshot) {
-                    return Primarylistveiw(
-                        children: snapshot.data.documents
-                            .map<Widget>((e) => Consultaioncard(
-                                  concult: e["case"],
-                                  username: e["usermail"],
-                                  firstbuttonhight: true,
-                                ))
-                            .toList());
+                    if (snapshot.data == null)
+                      return Center(
+                          child: Theme(
+                              data: ThemeData(accentColor: k_primarycolor),
+                              child: CircularProgressIndicator()));
+                    else
+                      return Primarylistveiw(
+                          children: snapshot.data.documents
+                              .map<Widget>((e) => Consultaioncard(
+                                    refrence: e.reference.documentID,
+                                    concult: e["case"],
+                                    username: e["user"]["full_name"],
+                                    firstbuttonhight: true,
+                                    replies: e["replies"],
+                                  ))
+                              .toList());
                   })),
         ],
       ),

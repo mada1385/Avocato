@@ -67,7 +67,7 @@ class User {
           .signInWithEmailAndPassword(email: email, password: password)
           .then((value) {
         user = email;
-        Provider.of<Userprovider>(context, listen: false).setuserid(user);
+        // Provider.of<Userprovider>(context, listen: false).setuserid(user);
         print("sucsses");
       }, onError: (error) {
         HapticFeedback.mediumImpact();
