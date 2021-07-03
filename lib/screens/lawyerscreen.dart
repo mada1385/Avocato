@@ -332,6 +332,25 @@ class Lawyerscreen extends StatelessWidget {
                                                                             20,
                                                                       ),
                                                                       Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.monetization_on_outlined,
+                                                                            color:
+                                                                                k_primarycolor,
+                                                                          ),
+                                                                          Goldtext(
+                                                                            string:
+                                                                                num.parse((e["hourrate"] ?? 0).toStringAsFixed(2)).toString(),
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
+                                                                            fontsize:
+                                                                                20,
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
                                                                         children: [
                                                                           Icon(
                                                                             Icons.star,

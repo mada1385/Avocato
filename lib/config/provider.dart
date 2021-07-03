@@ -9,10 +9,18 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Userprovider extends ChangeNotifier {
   dynamic user;
   dynamic userid;
-  int groupvalue;
+  int groupvalue = 0;
   changegroupvalue(int value) {
     groupvalue = value;
     notifyListeners();
+  }
+
+  logout(BuildContext context) async {
+    final sp = await SharedPreferences.getInstance();
+    sp.remove("user");
+    user = null;
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => Loginpage()));
   }
 
   checkforuser(BuildContext context) async {

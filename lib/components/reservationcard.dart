@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mydream/components/circleavatar.dart';
 import 'package:mydream/components/slideable.dart';
@@ -6,10 +7,17 @@ import 'package:mydream/constants/colours.dart';
 import 'package:mydream/constants/decoration.dart';
 
 class Reservationcard extends StatefulWidget {
-  final String lawyername, date, time, address;
+  final String lawyername, date, time, address, casebrirf, phonenumber, ref;
 
   const Reservationcard(
-      {Key key, this.lawyername, this.date, this.time, this.address})
+      {Key key,
+      this.lawyername,
+      this.date,
+      this.time,
+      this.address,
+      this.casebrirf,
+      this.phonenumber,
+      this.ref})
       : super(key: key);
   @override
   _ReservationcardState createState() => _ReservationcardState();
@@ -27,10 +35,10 @@ class _ReservationcardState extends State<Reservationcard> {
         FlatButton(
           onPressed: () {
             setState(() {
-              hight = 0;
-              width = 0;
-              iconsize = 0;
-              padding = 0;
+              Firestore.instance
+                  .collection("registration")
+                  .document(widget.ref)
+                  .delete();
             });
           },
           child: Goldtext(string: "Cancel"),

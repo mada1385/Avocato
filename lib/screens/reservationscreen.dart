@@ -34,9 +34,12 @@ class Reservationscreen extends StatelessWidget {
                     children: snapshot.data.documents
                         .map<Widget>((e) => Builder(
                             builder: (context) => Reservationcard(
+                                  ref: e.reference.documentID,
+                                  casebrirf: e["case_brief"],
                                   lawyername: e["lawyer"]["full_name"],
                                   date: e["date"],
                                   time: e["time"],
+                                  phonenumber: e["phone_number"],
                                 )))
                         .toList()
                     // <Widget>[
